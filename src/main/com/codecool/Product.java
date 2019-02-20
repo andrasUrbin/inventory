@@ -1,19 +1,19 @@
 package main.com.codecool;
 
-public abstract class Product {
+abstract class Product {
     private String name;
     private int price;
 
-    public Product(String name, int price){
+    Product(String name, int price){
         this.name = name;
         this.price = price;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getPrice() {
+    int getPrice() {
         return price;
     }
 }

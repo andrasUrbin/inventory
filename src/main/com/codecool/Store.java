@@ -25,19 +25,15 @@ import java.lang.Integer;
 
 public abstract class Store implements StorageCapable {
 
-    static File inputFile = new File("result.xml");
-    static String filename = "Products.xml";
     private List<Product> products = new ArrayList<>();
 
 
 
-    public List<Product> getProducts() {
+    List<Product> getProducts() {
         return products;
     }
 
     private void saveToXml(String filename) {
-        List<Product> products = getAllProduct();
-
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -105,7 +101,7 @@ public abstract class Store implements StorageCapable {
     protected abstract void storeProduct(Product product);
 
 
-    protected Product createProduct(String type, String name, int price, int size) {
+    private Product createProduct(String type, String name, int price, int size) {
         Product product = null;
         try {
             if (type.toLowerCase().equals("book")) {
@@ -124,7 +120,7 @@ public abstract class Store implements StorageCapable {
         List<Product> products = new ArrayList<Product>();
 
         try {
-            File storage = new File("Store.xml");
+            File storage = new File("Products.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(storage);
@@ -160,7 +156,7 @@ public abstract class Store implements StorageCapable {
     }
 
 
-    public void store(String filename){
+    void store(String filename){
         saveToXml(filename);
     }
 

@@ -9,6 +9,7 @@ public class Main {
         manager.addBookProduct("Golden Compass", 2700, 376);
         manager.addCDProduct("Skillet Best Of", 2500, 20);
         ps.store("Products.xml");
+        ps.loadProducts();
         System.out.println("Products from xml: " +  manager.listProducts());
         System.out.println("Total price: " + manager.getTotalProductPrice());
     }
